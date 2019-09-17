@@ -6,6 +6,7 @@
     "@fortawesome/fontawesome-free": "^5.10.2",
     "dom": "0.0.3",
     "fontawesome": "^5.6.3",
+    "prop-type": "0.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-fontawesome": "^1.6.1",
