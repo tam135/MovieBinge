@@ -10,6 +10,7 @@ const FourColGrid = props => {
          </div>
        );
      });
+      return gridElements;
    };
 
    return (
@@ -18,6 +19,7 @@ const FourColGrid = props => {
        <div className="rmdb-grid-content">{renderElements()}</div>
      </div>
    );
+   
 };
 
 export default FourColGrid;
