@@ -12,7 +12,7 @@ React, JavaScript, CSS,
 
 ### Screenshots
 ![](./src/Components/Images/moviebing1.png)
-![](./src/ComponentsImages/moviebing2.png)
+![](./src/Components/Images/moviebing2.png)
 ![](./src/Components/Images/moviebing3.png)
 
 
