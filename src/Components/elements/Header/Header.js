@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import moviedb from './moviedb.png'
+import bingelogo from './bingelogo.png'
 import "./Header.css";
 
 const Header = () => {
@@ -8,13 +10,13 @@ const Header = () => {
       <div className="rmdb-header-content">
         <Link to="/">
           <img
-            src="./images/reactMovie_logo.png"
+            src={bingelogo}
             className="rmdb-logo"
             alt="rmdb-logo"
           />
         </Link>
         <img
-          src="./images/tmdb_logo.png"
+          src={moviedb}
           className="rmdb-tmdb-logo"
           alt="tmdb-logo"
         />
