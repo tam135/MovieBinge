@@ -32,23 +32,6 @@ class Home extends Component {
     this.fetchItems(endpoint);
   }
 
-  loadMoreItems = () => {
-    let endpoint = "";
-    this.setState({
-      loading: true
-    });
-
-    if (this.state.searchTerm === "") {
-      endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this
-        .state.currentPage + 1}`;
-    } else {
-      endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query${
-        this.state.searchTerm
-      }$page=${this.state.currentPage + 1}`;
-    }
-    this.fetchItems(endpoint);
-  };
-
   searchItems = searchTerm => {
     console.log(searchTerm);
     let endpoint = "";
@@ -66,6 +49,23 @@ class Home extends Component {
     this.fetchItems(endpoint);
   };
 
+  loadMoreItems = () => {
+    let endpoint = "";
+    this.setState({
+      loading: true
+    });
+
+    if (this.state.searchTerm === "") {
+      endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this
+        .state.currentPage + 1}`;
+    } else {
+      endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query${
+        this.state.searchTerm
+      }$page=${this.state.currentPage + 1}`;
+    }
+    this.fetchItems(endpoint);
+  };
+
   fetchItems = endpoint => {
     fetch(endpoint)
       .then(result => result.json())
@@ -79,13 +79,16 @@ class Home extends Component {
         });
       });
   };
+
   render() {
     return (
       <div className="rmdb-home">
         {this.state.heroImage ? (
           <div>
             <HeroImage
-              image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${this.state.heroImage.backdrop_path}`}
+              image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${
+                this.state.heroImage.backdrop_path
+              }`}
               title={this.state.heroImage.original_title}
               text={this.state.heroImage.overview}
             />

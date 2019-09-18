@@ -3,10 +3,11 @@ import { API_URL, API_KEY } from "../../config";
 import Navigation from "../elements/Navigation/Navigation";
 import MovieInfo from "../elements/MovieInfo/MovieInfo";
 import MovieInfoBar from "../elements/MovieInfoBar/MovieInfoBar";
-import FourColGrid from "../elements/FourColGrid/FourColGrid";
+// import FourColGrid from "../elements/FourColGrid/FourColGrid";
 import Actor from "../elements/Actor/Actor";
 import Spinner from "../elements/Spinner/Spinner";
 import "./Movie.css";
+import FourColGrid from "../elements/FourColGrid/FourColGrid";
 
 class Movie extends Component {
   state = {
@@ -25,7 +26,9 @@ class Movie extends Component {
     } else {
       this.setState({ loading: true });
       //first fetch the movie data and then actors
-      const endpoint = `${API_URL}movie/${this.props.match.params.movieId}?api_key=${API_KEY}&language=en-US`;
+      const endpoint = `${API_URL}movie/${
+        this.props.match.params.movieId
+      }?api_key=${API_KEY}&language=en-US`;
       this.fetchMovieData(endpoint);
     }
   }
@@ -42,7 +45,9 @@ class Movie extends Component {
               movie: result
             },
             () => {
-              const endpoint_credit = `${API_URL}movie/${this.props.match.params.movieId}/credits?api_key=${API_KEY}&language=en-US`;
+              const endpoint_credit = `${API_URL}movie/${
+                this.props.match.params.movieId
+              }/credits?api_key=${API_KEY}&language=en-US`;
               fetch(endpoint_credit)
                 .then(result => result.json())
                 .then(result => {
@@ -68,8 +73,8 @@ class Movie extends Component {
         }
       })
       .catch(error => console.error("Error: ", error));
-
   };
+
   render() {
     return (
       <div>
